@@ -1,0 +1,46 @@
+/* Global Variables*/
+:root {
+    /* Magic Mint */
+    --mint: #B2EDC5;
+    /* Dodger Blue */
+    --blue: #1E96FC;
+    /* Deep Space Sparkle */
+    --darkblue: #466365;
+    /* Mikado Yellow */
+    --yellow: #FFC600;
+    /* Rose Madder */
+    --red: #DF2935;
+    /*Header Font*/
+    --header-font: 'Varela Round', sans-serif;
+    /*Main Font*/
+    --main-font: 'Montserrat', sans-serif;
+}
+
+.app-body {
+    background-color: var(--mint);
+}
+
+main {
+    background-color: var(--mint);
+    font-family: var(--main-font);
+    color: var(--darkblue);
+    font-weight: 500;
+}
+
+.page-header {
+    background-color: white;
+    display: flex;
+    width: 100%;
+    padding: 0px;
+}
+
+.page-header__item {
+    flex: 0 1 100px;
+    min-width: 0;
+}
+
+.logo {
+    padding:40px;
+    max-height: 100px;
+    width: 100%;  
+}
