@@ -49,7 +49,7 @@ let pokemonRepository = (function() {
     return {
         add: add,
         getAll: getAll,
-        search: search
+        // search: search
     };
 })();
 
