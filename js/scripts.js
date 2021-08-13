@@ -22,25 +22,25 @@ let pokemonRepository = (function() {
     }
 
     // function add(pokemon) {
-    //     if (typeof pokemon === 'object' && Object.keys(pokemon) === ['name', 'type', 'height']){
+    //     if (typeof pokemon === 'object'){
     //         pokemonList.push(pokemon);
-    //         console.log('is an object and all keys match');
+    //         console.log('is an object');
     //     } else {
     //         console.log('not an object');
-    //         console.log(Object.keys(pokemon) != ['name', 'type', 'height']);
     //     }
-        
+
+            //check for correct keys
+            // Object.keys(pokemon).every(function (item) {
+            //     return ["name", "type", "height"].includes(item)
+            // })
+
     // }
 
-    // function search(searchItem) {
-    //     pokemonList.forEach(function(pokemon) {
-    //         if (pokemon.name === searchItem) {
-    //             return true;
-    //         }
-    //     })
-
-    //     return pokemonList.filter();
-    // }
+    //search function
+    // without arrow function
+    // pokemonList.filter(function(item) { 
+    //      return item.name.toLowerCase().indexOf('ChAr'.toLowerCase()) > - 1;
+    // })
 
     function getAll() {
         return pokemonList;
