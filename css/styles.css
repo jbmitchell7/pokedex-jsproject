@@ -32,6 +32,7 @@ html {
 .page-header {
     background-color: var(--blue);
     display: flex;
+    flex-direction: row;
     margin: 30px;
     border-radius: 30px;
 }
@@ -42,8 +43,7 @@ html {
 }
 
 .page-header__item:last-child {
-    flex-grow: 1;
-    text-align: center;
+    flex: 0 1 auto;
     font-family: var(--header-font);
     color: white;
 }
@@ -54,10 +54,23 @@ html {
     width: 100%;  
 }
 
-main {
-    font-family: var(--main-font);
-    color: var(--darkblue);
-    font-weight: 500;
-    margin-left: 30px;
+.pokemon-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-right: 40px;
 }
 
+.view-pokemon {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    color: var(--darkblue);
+    background-color: var(--yellow);
+    font-family: var(--main-font);
+    font-size: medium;
+    font-weight: 700;
+    
+}

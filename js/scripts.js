@@ -21,20 +21,10 @@ let pokemonRepository = (function() {
         
     }
 
-    // function add(pokemon) {
-    //     if (typeof pokemon === 'object'){
-    //         pokemonList.push(pokemon);
-    //         console.log('is an object');
-    //     } else {
-    //         console.log('not an object');
-    //     }
-
-            //check for correct keys
-            // Object.keys(pokemon).every(function (item) {
-            //     return ["name", "type", "height"].includes(item)
-            // })
-
-    // }
+    //check for correct keys
+    // Object.keys(pokemon).every(function (item) {
+    //     return ["name", "type", "height"].includes(item)
+    // })
 
     //search function
     // without arrow function
@@ -46,19 +36,31 @@ let pokemonRepository = (function() {
         return pokemonList;
     }
 
+    function addListItem(pokemon) {
+        let list = document.querySelector('ul');
+        list.classList.add('pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.classList.add('view-pokemon');
+        button.innerText = pokemon.name;
+        listItem.appendChild(button);
+        list.appendChild(listItem);
+        button.addEventListener('click', showDetails(pokemon));
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon.name);
+    }
+
     return {
         add: add,
         getAll: getAll,
+        addListItem: addListItem
         // search: search
     };
 })();
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-    if (pokemon.height >= 1.5) {
-        document.write(`<main>${pokemon.name}  (Height: ${pokemon.height}) -Wow that's big!<br></main>`);
-    } else {
-        document.write(`<main>${pokemon.name}  (Height: ${pokemon.height}) <br></main>`);
-    }
+    pokemonRepository.addListItem(pokemon); 
 });
 
-// console.log(pokemonRepository.search('Bulbasaur'))
