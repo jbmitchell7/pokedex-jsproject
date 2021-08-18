@@ -59,6 +59,12 @@ html {
     width: 33.33%;
 }
 
+.pokemon-grid__item:first-letter {
+    display: inline-block;
+    width: 33.33%;
+    text-transform: capitalize;
+}
+
 @supports (display: grid) {
 
     .pokemon-grid {
