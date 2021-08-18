@@ -54,6 +54,27 @@ html {
     width: 100%;  
 }
 
+.loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.loading.show {
+    display: block;
+}
+
+.loading > p {
+    position: relative;
+    left: -50%;
+    background-color: var(--yellow);
+    color: var(--darkblue);
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0 0 3px 3px;
+  }
+
 .pokemon-grid__item {
     display: inline-block;
     width: 33.33%;

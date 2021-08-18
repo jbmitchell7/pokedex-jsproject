@@ -48,7 +48,7 @@ let pokemonRepository = (function () {
     }
 
     function loadList() {
-         // showLoadingMessage();
+        showLoadingMessage();
         return fetch(apiUrl).then(function (response) {
             return response.json();
         }).then(function (json) {
@@ -58,14 +58,16 @@ let pokemonRepository = (function () {
                     detailsUrl: item.url
                 };
                 add(pokemon);
+                hideLoadingMessage();
             });
         }).catch(function (e) {
             console.error(e);
+            hideLoadingMessage();
         });
     }
 
     function loadDetails(item) {
-        // showLoadingMessage();
+        showLoadingMessage();
         let url = item.detailsUrl;
         return fetch(url).then(function (response) {
             return response.json();
@@ -73,30 +75,31 @@ let pokemonRepository = (function () {
             item.imageUrl = details.sprites.front_default;
             item.height = details.height;
             item.types = details.types;
+            hideLoadingMessage();
         }).catch(function (e) {
             console.error(e);
+            hideLoadingMessage();
         });
     }
 
     function showLoadingMessage() {
-        let loadingMessage = document.createElement('h2');
-        loadingMessage.classList.add('loading');
-        loadingMessage.innerText = "Loading Pokemon";
+        let loadingMessage = document.querySelector(".loading");
+        loadingMessage.classList.add("show");
     }
 
     function hideLoadingMessage() {
         let loadingMessage = document.querySelector('.loading');
-        loadingMessage.parentElement.removeChild(loadingMessage);
+        loadingMessage.classList.remove("show");
     }
 
     return {
-        add: add,
-        getAll: getAll,
-        addListItem: addListItem,
-        loadList: loadList,
-        loadDetails: loadDetails,
-        showLoadingMessage: showLoadingMessage,
-        hideLoadingMessage: hideLoadingMessage
+        add,
+        getAll,
+        addListItem,
+        loadList,
+        loadDetails,
+        showLoadingMessage,
+        hideLoadingMessage,
         // search: search
     };
 })();
