@@ -29,10 +29,10 @@ let pokemonRepository = (function () {
 
     function addListItem(pokemon) {
         let list = document.querySelector('ul');
-        list.classList.add('pokemon-list');
+        list.classList.add('pokemon-grid');
         let listItem = document.createElement('li');
         let button = document.createElement('button');
-        button.classList.add('pokemon-list__item');
+        button.classList.add('pokemon-grid__item');
         button.innerText = pokemon.name;
         listItem.appendChild(button);
         list.appendChild(listItem);
