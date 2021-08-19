@@ -30,11 +30,11 @@ html {
 }
 
 .page-header {
-    background-color: var(--blue);
     display: flex;
     flex-direction: row;
     margin: 30px;
     border-radius: 30px;
+    background-color: var(--blue);
 }
 
 .page-header__item {
@@ -49,9 +49,9 @@ html {
 }
 
 .logo {
-    padding:20px;
+    width: 100%;
     max-height: 100px;
-    width: 100%;  
+    padding: 20px;  
 }
 
 .loading {
@@ -68,21 +68,34 @@ html {
 .loading > p {
     position: relative;
     left: -50%;
-    background-color: var(--yellow);
-    color: var(--darkblue);
     margin: 0;
     padding: 8px 16px;
     border-radius: 0 0 3px 3px;
+    background-color: white;
+    color: var(--red);
+    font-weight: 700;
   }
 
 .pokemon-grid__item {
+    width: 100%;
+    height: 50px;
     display: inline-block;
-    width: 33.33%;
+    border-radius: 10px;
+    border-width: medium;
+    border-style: outset;
+    color: var(--darkblue);
+    background-color: var(--yellow);
+    font-family: var(--main-font);
+    font-size: medium;
+    font-weight: 700;
+    text-align: center;
+}
+
+.pokemon-grid__item:hover {
+    border-style: inset;
 }
 
 .pokemon-grid__item:first-letter {
-    display: inline-block;
-    width: 20%;
     text-transform: capitalize;
 }
 
@@ -90,23 +103,10 @@ html {
 
     .pokemon-grid {
         list-style: none;
+        margin-right: 40px;
         display: grid;
         grid-template-columns: auto auto auto auto auto;
-        margin-right: 40px;
         grid-gap: 15px;
-    }
-
-    .pokemon-grid__item {
-        border-radius: 10px;
-        color: var(--darkblue);
-        background-color: var(--yellow);
-        font-family: var(--main-font);
-        font-size: medium;
-        font-weight: 700;
-        text-align: center;
-        width: 100%;
-        height: 50px;
-        
     }
 }
 
@@ -128,16 +128,16 @@ html {
 
 #modal-container {
     position: fixed;
-    padding: 20px;
+    overflow: auto;
+    display: flex;
     box-sizing: border-box;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
     z-index: 999; 
-    overflow: auto;
-    display: flex;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 #modal-container {
@@ -149,15 +149,15 @@ html {
 }
 
 .modal {
-    margin: auto;
     display: grid;
     grid-template-rows: auto auto auto auto auto;
     box-sizing: border-box;
-    background: white;
     margin-top: 75px;
+    margin: auto;
     padding: 20px;
     max-width: 300px;
     border-radius: 20px;
+    background-color: white;
 }
   
 .modal-close {
@@ -186,10 +186,10 @@ html {
     grid-row-start: 3;
     margin-top: 0;
     font-family: var(--header-font);
+    text-transform: capitalize;
     color: var(--darkblue);
     justify-self:center;
     align-self: center;
-    text-transform: capitalize;
 }
   
 .modal p {
@@ -205,6 +205,6 @@ html {
 
 .pokemon-stats {
     grid-row-start: 5;
-    justify-self: left;
     margin-left: 15px;
+    justify-self: left;
 }
