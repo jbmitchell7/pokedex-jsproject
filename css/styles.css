@@ -81,7 +81,7 @@ html {
     height: 50px;
     display: inline-block;
     border-radius: 10px;
-    border-width: medium;
+    border-width: 2px;
     border-style: outset;
     color: var(--darkblue);
     background-color: var(--yellow);
