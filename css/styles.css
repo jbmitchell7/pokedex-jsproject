@@ -152,8 +152,8 @@ html {
     display: grid;
     grid-template-rows: auto auto auto auto auto;
     box-sizing: border-box;
-    margin-top: 75px;
     margin: auto;
+    margin-top: 75px;
     padding: 20px;
     max-width: 300px;
     border-radius: 20px;
