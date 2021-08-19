@@ -26,7 +26,7 @@ html {
 }
 
 .app-body {
-    background-color: var(--mint);
+    background-color: lightslategray;
 }
 
 .page-header {
@@ -83,8 +83,9 @@ html {
     border-radius: 10px;
     border-width: 2px;
     border-style: outset;
-    color: var(--darkblue);
-    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--red);
+    background-color: white;
     font-family: var(--main-font);
     font-size: medium;
     font-weight: 700;
