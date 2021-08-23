@@ -76,8 +76,27 @@ html {
     font-weight: 700;
 }
 
-.pokemon-item {
+.btn {
+    color: var(--red);
+    background-color: white;
+    border-color: var(--yellow);
+    font-family: var(--main-font);
+    font-size: medium;
+    font-weight: 700;
     text-transform: capitalize;
+}
+
+.btn:hover {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-sm {
+    border-radius: 15px;
 }
 
 h1 {

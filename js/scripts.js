@@ -116,11 +116,8 @@ let pokemonRepository = (function () {
     function showModal(pokemon) {
         let modalContent = document.querySelector(".modal-content");
         let modalBody = document.querySelector(".modal-body");
-        let modalHeader = document.querySelector(".modal-header");
 
         modalBody.innerHTML = '';
-
-        let closeButtonElement = document.querySelector('#close-button');
 
         let pokemonName = document.createElement('h1');
         pokemonName.classList.add('text-center');
@@ -167,33 +164,11 @@ let pokemonRepository = (function () {
         modalBody.appendChild(pokemonTypes);
         modalBody.appendChild(pokemonStats);
 
-        modalContent.appendChild(modalHeader);
-        modalHeader.appendChild(closeButtonElement);
-
         modalContent.appendChild(modalBody);
         
 
         $("#modal-container").modal("toggle");
     }
-
-    // function hideModal() {
-
-    //     modalContainer.classList.remove('is-visible');
-    // }
-
-    // window.addEventListener('keydown', (e) => {
-
-    //     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-    //         hideModal();
-    //     }
-    // });
-
-    // modalContainer.addEventListener('click', (e) => {
-    //     let target = e.target;
-    //     if (target === modalContainer) {
-    //         hideModal();
-    //     }
-    // });
 
     return {
         add,
