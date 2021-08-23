@@ -39,7 +39,7 @@ let pokemonRepository = (function () {
         let listItem = document.createElement('li');
         listItem.classList.add('group-list-item', 'col-lg-4', 'col-md-6', 'col');
         let button = document.createElement('button');
-        button.classList.add('btn', 'btn-primary');
+        button.classList.add('btn', 'btn-primary', 'pokemon-item');
         button.innerText = pokemon.name;
         button.dataset.toggle = 'modal fade';
         button.dataset.target = '#pokemon-modal'
@@ -118,13 +118,13 @@ let pokemonRepository = (function () {
         let modalBody = document.querySelector(".modal-body");
         let modalHeader = document.querySelector(".modal-header");
 
-        modalHeader.innerHTML = '';
         modalBody.innerHTML = '';
 
         let closeButtonElement = document.querySelector('#close-button');
 
         let pokemonName = document.createElement('h1');
-        pokemonName.innerText = pokemon.name;
+        pokemonName.classList.add('text-center');
+        pokemonName.innerText = (pokemon.name);
 
         let pokemonStats = document.createElement('div');
         pokemonStats.classList.add('pokemon-stats');
@@ -152,6 +152,7 @@ let pokemonRepository = (function () {
         pokemonTypes.innerText = "Types: " + pokemon.types;
 
         let pokemonImage = document.createElement('img');
+        pokemonImage.classList.add('mx-auto', 'd-block');
         pokemonImage.src = pokemon.imageUrl;
 
         pokemonStats.appendChild(pokemonHP);
@@ -163,14 +164,16 @@ let pokemonRepository = (function () {
 
         modalBody.appendChild(pokemonImage);
         modalBody.appendChild(pokemonName);
-        modalBody.appendChild(pokemonStats);
         modalBody.appendChild(pokemonTypes);
-        
+        modalBody.appendChild(pokemonStats);
+
+        modalContent.appendChild(modalHeader);
         modalHeader.appendChild(closeButtonElement);
 
         modalContent.appendChild(modalBody);
-        modalContent.appendChild(modalHeader);
+        
 
+        $("#modal-container").modal("toggle");
     }
 
     // function hideModal() {
