@@ -26,7 +26,7 @@ html {
 }
 
 .app-body {
-    background-color: lightslategray;
+    background-color: var(--red);
 }
 
 .page-header {
@@ -84,6 +84,7 @@ html {
     font-size: medium;
     font-weight: 700;
     text-transform: capitalize;
+    min-width: 150px;
 }
 
 .btn:hover {
@@ -97,6 +98,11 @@ html {
 
 .modal-sm {
     border-radius: 15px;
+}
+
+.list-group-item {
+    background-color: lightslategray;
+    border: none;
 }
 
 h1 {
