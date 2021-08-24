@@ -1,18 +1,11 @@
 /* Global Variables*/
 :root {
-    /* Magic Mint */
-    --mint: #B2EDC5;
-    /* Dodger Blue */
-    --blue: #1E96FC;
-    /* Deep Space Sparkle */
-    --darkblue: #466365;
-    /* Mikado Yellow */
-    --yellow: #FFC600;
-    /* Rose Madder */
-    --red: #DF2935;
-    /*Header Font*/
+    --mint: #B8DBD9;
+    --orange: #D95D39;
+    --darkblue: #2E5077;
+    --yellow: #F5CB5C;
+    --red: #881600;
     --header-font: 'Varela Round', sans-serif;
-    /*Main Font*/
     --main-font: 'Montserrat', sans-serif;
 }
 
@@ -34,7 +27,7 @@ html {
     flex-direction: row;
     margin: 30px;
     border-radius: 30px;
-    background-color: var(--blue);
+    background-color: var(--darkblue);
 }
 
 .page-header__item {
@@ -77,7 +70,7 @@ html {
 }
 
 .btn {
-    color: var(--red);
+    color: var(--darkblue);
     background-color: white;
     border-color: var(--yellow);
     font-family: var(--main-font);
@@ -101,8 +94,9 @@ html {
 }
 
 .list-group-item {
-    background-color: lightslategray;
+    background-color: var(--mint);
     border: none;
+    border-radius: 0px;
 }
 
 h1 {
