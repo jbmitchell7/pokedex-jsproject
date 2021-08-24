@@ -22,29 +22,9 @@ html {
     background-color: var(--red);
 }
 
-.page-header {
-    display: flex;
-    flex-direction: row;
-    margin: 30px;
-    border-radius: 30px;
+.navbar {
     background-color: var(--darkblue);
-}
-
-.page-header__item {
-    flex: 0 1 100px;
-    min-width: 0;
-}
-
-.page-header__item:last-child {
-    padding-top: 25px;
     font-family: var(--header-font);
-    color: white;
-}
-
-.logo {
-    width: 100%;
-    max-height: 100px;
-    padding: 20px;  
 }
 
 .loading {
@@ -91,6 +71,10 @@ html {
 
 .modal-sm {
     border-radius: 15px;
+}
+
+ul {
+    margin-top: 100px;
 }
 
 .list-group-item {
