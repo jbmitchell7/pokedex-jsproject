@@ -81,6 +81,11 @@ html {
     border-color: var(--yellow);
 }
 
+.search-empty {
+    color: white;
+    font-family: var(--main-font);
+}
+
 ul {
     margin-top: 20px;
 }

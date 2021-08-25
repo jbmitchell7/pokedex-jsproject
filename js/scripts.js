@@ -26,6 +26,7 @@ let pokemonRepository = (function () {
 
         if(list.innerHTML === "") {
             list.innerHTML = "<h5>No Pokemon match your search</h5>"
+            list.classList.add('search-empty');
         }
     }
 
@@ -47,7 +48,7 @@ let pokemonRepository = (function () {
         
         listItem.appendChild(button);
         list.appendChild(listItem);
-        
+
         button.addEventListener('click', function () {
             showDetails(pokemon);
         });
