@@ -5,5 +5,5 @@ It gives this info on the first 150 Pokemon and displays them as a list of names
 
 There is also the ability to filter Pokemon by name with a search box at the top of the page.
 
-![image of main screen](./img/main-screenshot.png)
-![image of modal screen](./img/modal-screenshot.png)
+![image of main screen](https://github.com/jbmitchell7/pokedex-jsproject/blob/development/img/main-screenshot.PNG)
+![image of modal screen](https://github.com/jbmitchell7/pokedex-jsproject/blob/development/img/modal-screenshot.PNG)
