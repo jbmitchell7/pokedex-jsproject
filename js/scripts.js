@@ -12,22 +12,22 @@ let pokemonRepository = (function () {
 
     }
 
-    // function search() {
-    //     let searchInput = document.querySelector('#search-bar');
-    
-    //     searchInput.addEventListener('input', function() {
-    //       // Adds a Bootstrap class.
-    //       let searchText = searchInput.value.toLowerCase();
-    
-    //       pokemonList.forEach(function(pokemon) {
-    //         if (pokemon.innerText.toLowerCase().indexOf(searchText) > -1) {
-    //           pokemon.style.display = '';
-    //         } else {
-    //           pokemon.style.display = 'none';
-    //         }
-    //       });
-    //     });
-    //   }
+    function search(input) {
+        let filteredList = pokemonRepository.getAll().filter(
+            (nextPokemon) => nextPokemon.name.toLowerCase().indexOf(input.toLowerCase()) > -1
+        ) || this.pokemonList;
+
+        let list = document.querySelector("ul");
+        list.innerHTML = "";
+
+        filteredList.forEach(function (pokemon) {
+            pokemonRepository.addListItem(pokemon);
+        });
+
+        if(list.innerHTML === "") {
+            list.innerHTML = "<h5>No Pokemon match your search</h5>"
+        }
+    }
 
     function getAll() {
         return pokemonList;
@@ -171,7 +171,7 @@ let pokemonRepository = (function () {
 
     return {
         add,
-        // search,
+        search,
         getAll,
         addListItem,
         showDetails,
