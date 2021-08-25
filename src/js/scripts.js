@@ -39,10 +39,9 @@ let pokemonRepository = (function () {
         let list = document.querySelector('ul');
 
         let listItem = document.createElement('li');
-        listItem.classList.add('list-group-item', 'col-xs-6');
 
         let button = document.createElement('button');
-        button.classList.add('btn', 'btn-primary', 'pokemon-item');
+        button.classList.add('pokemon-grid__item', 'btn', 'btn-primary');
         button.innerText = pokemon.name;
         button.dataset.toggle = 'modal fade';
         button.dataset.target = '#pokemon-modal'
@@ -124,7 +123,7 @@ let pokemonRepository = (function () {
         modalBody.innerHTML = '';
 
         let pokemonName = document.createElement('h1');
-        pokemonName.classList.add('text-center');
+        pokemonName.classList.add('modal-name', 'text-center');
         pokemonName.innerText = (pokemon.name);
 
         let pokemonStats = document.createElement('div');
