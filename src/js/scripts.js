@@ -9,7 +9,6 @@ let pokemonRepository = (function () {
         } else {
             console.log('not an object');
         }
-
     }
 
     function search(input) {
@@ -25,8 +24,10 @@ let pokemonRepository = (function () {
         });
 
         if(list.innerHTML === "") {
-            list.innerHTML = "<h5>No Pokemon match your search</h5>"
-            list.classList.add('search-empty');
+            var emptySearch = document.createElement('h5');
+            emptySearch.innerText = 'No Pokemon match your search';
+            emptySearch.classList.add('search-empty');
+            list.appendChild(emptySearch);
         }
     }
 

@@ -29,9 +29,10 @@ html {
 
 .loading {
     display: none;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 70px;
     left: 50%;
+    z-index: 999;
 }
 
 .loading.show {
@@ -43,7 +44,7 @@ html {
     left: -50%;
     margin: 0;
     padding: 8px 16px;
-    border-radius: 0 0 3px 3px;
+    border-radius: 3px;
     background-color: white;
     color: var(--red);
     font-weight: 700;
@@ -74,7 +75,7 @@ html {
 }
 
 .body-container {
-    margin-top: 80px;
+    margin-top: 120px;
 }
 
 .form-control, .form-control:focus {
