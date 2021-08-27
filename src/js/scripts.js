@@ -1,4 +1,4 @@
-let pokemonRepository = (function () {
+const pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
@@ -6,8 +6,6 @@ let pokemonRepository = (function () {
         if (typeof pokemon === 'object') {
             pokemonList.push(pokemon);
             console.log('is an object');
-        } else {
-            console.log('not an object');
         }
     }
 
@@ -71,8 +69,8 @@ let pokemonRepository = (function () {
                     detailsUrl: item.url
                 };
                 add(pokemon);
-                hideLoadingMessage();
             });
+            hideLoadingMessage();
         }).catch(function (e) {
             console.error(e);
             hideLoadingMessage();
@@ -174,16 +172,10 @@ let pokemonRepository = (function () {
     }
 
     return {
-        add,
-        search,
         getAll,
         addListItem,
-        showDetails,
         loadList,
-        loadDetails,
-        showLoadingMessage,
-        hideLoadingMessage,
-        showModal,
+        search,
     };
 })();
 
