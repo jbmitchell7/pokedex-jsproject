@@ -5,7 +5,6 @@ const pokemonRepository = () => {
     const add = (pokemon) => {
         if (typeof pokemon === 'object') {
             pokemonList.push(pokemon);
-            console.log('is an object');
         }
     }
 
