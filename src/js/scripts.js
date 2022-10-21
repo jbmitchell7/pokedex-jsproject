@@ -1,15 +1,15 @@
-const pokemonRepository = (function () {
+const pokemonRepository = () => {
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-    function add(pokemon) {
+    const add = (pokemon) => {
         if (typeof pokemon === 'object') {
             pokemonList.push(pokemon);
             console.log('is an object');
         }
     }
 
-    function search(input) {
+    const search = (input) => {
         let filteredList = pokemonRepository.getAll().filter(
             (nextPokemon) => nextPokemon.name.toLowerCase().indexOf(input.toLowerCase()) > -1
         ) || this.pokemonList;
@@ -17,7 +17,7 @@ const pokemonRepository = (function () {
         let list = document.querySelector("ul");
         list.innerHTML = "";
 
-        filteredList.forEach(function (pokemon) {
+        filteredList.forEach(pokemon => {
             pokemonRepository.addListItem(pokemon);
         });
 
@@ -29,11 +29,11 @@ const pokemonRepository = (function () {
         }
     }
 
-    function getAll() {
+    const getAll = () => {
         return pokemonList;
     }
 
-    function addListItem(pokemon) {
+    const addListItem = (pokemon) => {
         let list = document.querySelector('ul');
 
         let listItem = document.createElement('li');
@@ -47,23 +47,23 @@ const pokemonRepository = (function () {
         listItem.appendChild(button);
         list.appendChild(listItem);
 
-        button.addEventListener('click', function () {
+        button.addEventListener('click', () => {
             showDetails(pokemon);
         });
     }
 
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
+    const showDetails = (pokemon) => {
+        loadDetails(pokemon).then(() => {
             showModal(pokemon);
         });
     }
 
-    function loadList() {
+    const loadList = () => {
         showLoadingMessage();
-        return fetch(apiUrl).then(function (response) {
+        return fetch(apiUrl).then(response => {
             return response.json();
-        }).then(function (json) {
-            json.results.forEach(function (item) {
+        }).then((json) => {
+            json.results.forEach(item => {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url
@@ -71,18 +71,18 @@ const pokemonRepository = (function () {
                 add(pokemon);
             });
             hideLoadingMessage();
-        }).catch(function (e) {
+        }).catch(e => {
             console.error(e);
             hideLoadingMessage();
         });
     }
 
-    function loadDetails(pokemon) {
+    const loadDetails = (pokemon) => {
         showLoadingMessage();
         let url = pokemon.detailsUrl;
-        return fetch(url).then(function (response) {
+        return fetch(url).then(response => {
             return response.json();
-        }).then(function (details) {
+        }).then(details => {
             pokemon.imageUrl = details.sprites.front_default;
 
             pokemon.hp = details.stats[0].base_stat;
@@ -93,28 +93,28 @@ const pokemonRepository = (function () {
             pokemon.speed = details.stats[5].base_stat;
 
             pokemon.types = [];
-            details.types.forEach(function (i) {
+            details.types.forEach(i => {
                 pokemon.types.push(i.type.name);
             });
 
             hideLoadingMessage();
-        }).catch(function (e) {
+        }).catch(e => {
             console.error(e);
             hideLoadingMessage();
         });
     }
 
-    function showLoadingMessage() {
+    const showLoadingMessage = () => {
         let loadingMessage = document.querySelector(".loading");
         loadingMessage.classList.add("show");
     }
 
-    function hideLoadingMessage() {
+    const hideLoadingMessage = () => {
         let loadingMessage = document.querySelector('.loading');
         loadingMessage.classList.remove("show");
     }
 
-    function showModal(pokemon) {
+    const showModal = (pokemon) => {
         let modalContent = document.querySelector(".modal-content");
         let modalBody = document.querySelector(".modal-body");
 
@@ -177,10 +177,10 @@ const pokemonRepository = (function () {
         loadList,
         search,
     };
-})();
+};
 
-pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function (pokemon) {
+pokemonRepository.loadList().then(() => {
+    pokemonRepository.getAll().forEach(pokemon => {
         pokemonRepository.addListItem(pokemon);
     });
 });
