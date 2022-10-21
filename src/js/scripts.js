@@ -57,12 +57,12 @@ const pokemonRepository = () => {
         });
     }
 
-    const loadList = () => {
+    const loadList = async () => {
         showLoadingMessage();
-        return fetch(apiUrl).then(response => {
-            return response.json();
-        }).then((json) => {
-            json.results.forEach(item => {
+        try {
+            let res = await fetch(apiUrl);
+            let resToJson = res.json();
+            resToJson.results.forEach(item => {
                 let pokemon = {
                     name: item.name,
                     detailsUrl: item.url
@@ -70,37 +70,35 @@ const pokemonRepository = () => {
                 add(pokemon);
             });
             hideLoadingMessage();
-        }).catch(e => {
-            console.error(e);
-            hideLoadingMessage();
-        });
+        } catch {
+            throw new Error('error retrieving pokemon data');
+        }
     }
 
-    const loadDetails = (pokemon) => {
+    const loadDetails = async (pokemon) => {
         showLoadingMessage();
-        let url = pokemon.detailsUrl;
-        return fetch(url).then(response => {
-            return response.json();
-        }).then(details => {
-            pokemon.imageUrl = details.sprites.front_default;
-
-            pokemon.hp = details.stats[0].base_stat;
-            pokemon.attack = details.stats[1].base_stat;
-            pokemon.defense = details.stats[2].base_stat;
-            pokemon.specialattack = details.stats[3].base_stat;
-            pokemon.specialdefense = details.stats[4].base_stat;
-            pokemon.speed = details.stats[5].base_stat;
-
+        try {
+            let url = pokemon.detailsUrl;
+            let res = await fetch(url);
+            let resToJson = res.json();
+            
+            pokemon.imageUrl = resToJson.sprites.front_default;
+            pokemon.hp = resToJson.stats[0].base_stat;
+            pokemon.attack = resToJson.stats[1].base_stat;
+            pokemon.defense = resToJson.stats[2].base_stat;
+            pokemon.specialattack = resToJson.stats[3].base_stat;
+            pokemon.specialdefense = resToJson.stats[4].base_stat;
+            pokemon.speed = resToJson.stats[5].base_stat;
             pokemon.types = [];
-            details.types.forEach(i => {
+            
+            resToJson.types.forEach(i => {
                 pokemon.types.push(i.type.name);
             });
 
             hideLoadingMessage();
-        }).catch(e => {
-            console.error(e);
-            hideLoadingMessage();
-        });
+        } catch {
+            throw new Error("error getting pokemon details");
+        }
     }
 
     const showLoadingMessage = () => {
@@ -178,11 +176,14 @@ const pokemonRepository = () => {
     };
 };
 
-pokemonRepository.loadList().then(() => {
+const displayPokemon = async () => {
+    await pokemonRepository.loadList();
     pokemonRepository.getAll().forEach(pokemon => {
         pokemonRepository.addListItem(pokemon);
-    });
-});
+    })
+}
+
+displayPokemon();
 
 
 
